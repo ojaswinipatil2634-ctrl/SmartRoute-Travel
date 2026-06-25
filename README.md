@@ -6,7 +6,7 @@ SmartRoute is an AI-powered travel assistant that helps users compare travel opt
 
 ## 📱 Screenshots
 
-### Home Dashboard & Travel Assistant
+### Home Dashboard  
 
 <table>
 <tr>
@@ -20,8 +20,7 @@ SmartRoute is an AI-powered travel assistant that helps users compare travel opt
 </tr>
 </table>
 
-
-### Booking Page & Booking Search
+### Booking Page & Booking Search  
 
 <table>
 <tr>
@@ -36,8 +35,6 @@ SmartRoute is an AI-powered travel assistant that helps users compare travel opt
 </table>
 
 
-### Flight Bookings & Header Section
-
 <table>
 <tr>
 <td>
@@ -51,7 +48,7 @@ SmartRoute is an AI-powered travel assistant that helps users compare travel opt
 </table>
 
 
-### Ticket Booked & Ticket View  
+### Booking Confirmed  
 
 <table>
 <tr>
@@ -66,7 +63,7 @@ SmartRoute is an AI-powered travel assistant that helps users compare travel opt
 </table>
 
 
-### Your Booking
+### Ticket View & Your Booking
 
 <table>
 <tr>
