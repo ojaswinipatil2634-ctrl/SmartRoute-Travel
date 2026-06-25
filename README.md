@@ -6,38 +6,40 @@ SmartRoute is an AI-powered travel assistant that helps users compare travel opt
 
 ## 📱 Screenshots
 
+## 📱 Screenshots
+
 ### Home Dashboard & Travel Assistant
 
 <p>
-<img src="screenshots/Smart%20travel.jpeg" width="250"/>
+<img src="screenshots/Smart%20travel.jpeg" width="250" style="margin-right:40px;"/>
 <img src="screenshots/Travel%20assisstant.jpeg" width="250"/>
 </p>
 
 ### Booking Page & Booking Search
 
 <p>
-<img src="screenshots/booking%20front.jpeg" width="250"/>
+<img src="screenshots/booking%20front.jpeg" width="250" style="margin-right:40px;"/>
 <img src="screenshots/booking%20front%201.jpeg" width="250"/>
 </p>
 
 ### Booking List & Confirmed Booking
 
 <p>
-<img src="screenshots/booking%20list%20header.jpeg" width="250"/>
+<img src="screenshots/booking%20list%20header.jpeg" width="250" style="margin-right:40px;"/>
 <img src="screenshots/confirmed_booking.jpeg" width="250"/>
 </p>
 
 ### Flight Bookings & Header Section
 
 <p>
-<img src="screenshots/flight%20bookings.jpeg" width="250"/>
+<img src="screenshots/flight%20bookings.jpeg" width="250" style="margin-right:40px;"/>
 <img src="screenshots/smart%20travel%20header.jpeg" width="250"/>
 </p>
 
 ### Ticket View & Ticket Booked
 
 <p>
-<img src="screenshots/ticket.png" width="250"/>
+<img src="screenshots/ticket.png" width="250" style="margin-right:40px;"/>
 <img src="screenshots/ticket_booked.jpeg" width="250"/>
 </p>
 
