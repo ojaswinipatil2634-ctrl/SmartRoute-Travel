@@ -6,38 +6,46 @@ SmartRoute is an AI-powered travel assistant that helps users compare travel opt
 
 ## 📱 Screenshots
 
-### Home Dashboard
+### Home Dashboard & Travel Assistant
+
+<p>
 <img src="screenshots/Smart%20travel.jpeg" width="250"/>
-
-### Travel Assistant
 <img src="screenshots/Travel%20assisstant.jpeg" width="250"/>
+</p>
 
-### Booking Page
+### Booking Page & Booking Search
+
+<p>
 <img src="screenshots/booking%20front.jpeg" width="250"/>
-
-### Booking Search
 <img src="screenshots/booking%20front%201.jpeg" width="250"/>
+</p>
 
-### Booking List
+### Booking List & Confirmed Booking
+
+<p>
 <img src="screenshots/booking%20list%20header.jpeg" width="250"/>
-
-### Confirmed Booking
 <img src="screenshots/confirmed_booking.jpeg" width="250"/>
+</p>
 
-### Flight Bookings
+### Flight Bookings & Header Section
+
+<p>
 <img src="screenshots/flight%20bookings.jpeg" width="250"/>
-
-### Header Section
 <img src="screenshots/smart%20travel%20header.jpeg" width="250"/>
+</p>
 
-### Ticket View
+### Ticket View & Ticket Booked
+
+<p>
 <img src="screenshots/ticket.png" width="250"/>
-
-### Ticket Booked
 <img src="screenshots/ticket_booked.jpeg" width="250"/>
+</p>
 
 ### Your Booking
+
+<p>
 <img src="screenshots/your%20booking.jpeg" width="250"/>
+</p>
 
 ## ✨ Features
 
