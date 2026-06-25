@@ -3,32 +3,31 @@
 
 SmartRoute is an AI-powered travel assistant that helps users compare travel options, optimize routes, discover hotels and events, and generate personalized itineraries.
 
-# SmartRoute Travel Assistant
 
-## 📱 Screenshots
+## 📱 Mobile Website Screenshots
 
 <p align="center">
 
-<img src="home.jpeg" width="220"/>
-<img src="travel-assistant.jpeg" width="220"/>
-<img src="booking-page.jpeg" width="220"/>
+<img src="./screenshots/home.jpeg" width="220"/>
+<img src="./screenshots/travel-assistant.jpeg" width="220"/>
+<img src="./screenshots/booking-page.jpeg" width="220"/>
 
 <br><br>
 
-<img src="booking-search.jpeg" width="220"/>
-<img src="booking-list.jpeg" width="220"/>
-<img src="confirmed-booking.jpeg" width="220"/>
+<img src="./screenshots/booking-search.jpeg" width="220"/>
+<img src="./screenshots/booking-list.jpeg" width="220"/>
+<img src="./screenshots/confirmed-booking.jpeg" width="220"/>
 
 <br><br>
 
-<img src="flight-bookings.jpeg" width="220"/>
-<img src="header.jpeg" width="220"/>
-<img src="ticket.png" width="220"/>
+<img src="./screenshots/flight-bookings.jpeg" width="220"/>
+<img src="./screenshots/header.jpeg" width="220"/>
+<img src="./screenshots/ticket.png" width="220"/>
 
 <br><br>
 
-<img src="ticket-booked.jpeg" width="220"/>
-<img src="your-booking.jpeg" width="220"/>
+<img src="./screenshots/ticket-booked.jpeg" width="220"/>
+<img src="./screenshots/your-booking.jpeg" width="220"/>
 
 </p>
 
