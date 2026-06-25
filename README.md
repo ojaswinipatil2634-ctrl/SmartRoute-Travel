@@ -6,48 +6,90 @@ SmartRoute is an AI-powered travel assistant that helps users compare travel opt
 
 ## 📱 Screenshots
 
-## 📱 Screenshots
-
 ### Home Dashboard & Travel Assistant
 
-<p>
-<img src="screenshots/Smart%20travel.jpeg" width="250" style="margin-right:40px;"/>
-<img src="screenshots/Travel%20assisstant.jpeg" width="250"/>
-</p>
+<table>
+<tr>
+<td>
+<img src="screenshots/Smart%20travel.jpeg" width="220"/>
+</td>
+<td width="80"></td>
+<td>
+<img src="screenshots/Travel%20assisstant.jpeg" width="220"/>
+</td>
+</tr>
+</table>
+
 
 ### Booking Page & Booking Search
 
-<p>
-<img src="screenshots/booking%20front.jpeg" width="250" style="margin-right:40px;"/>
-<img src="screenshots/booking%20front%201.jpeg" width="250"/>
-</p>
+<table>
+<tr>
+<td>
+<img src="screenshots/booking%20front.jpeg" width="220"/>
+</td>
+<td width="80"></td>
+<td>
+<img src="screenshots/booking%20front%201.jpeg" width="220"/>
+</td>
+</tr>
+</table>
+
 
 ### Booking List & Confirmed Booking
 
-<p>
-<img src="screenshots/booking%20list%20header.jpeg" width="250" style="margin-right:40px;"/>
-<img src="screenshots/confirmed_booking.jpeg" width="250"/>
-</p>
+<table>
+<tr>
+<td>
+<img src="screenshots/booking%20list%20header.jpeg" width="220"/>
+</td>
+<td width="80"></td>
+<td>
+<img src="screenshots/confirmed_booking.jpeg" width="220"/>
+</td>
+</tr>
+</table>
+
 
 ### Flight Bookings & Header Section
 
-<p>
-<img src="screenshots/flight%20bookings.jpeg" width="250" style="margin-right:40px;"/>
-<img src="screenshots/smart%20travel%20header.jpeg" width="250"/>
-</p>
+<table>
+<tr>
+<td>
+<img src="screenshots/flight%20bookings.jpeg" width="220"/>
+</td>
+<td width="80"></td>
+<td>
+<img src="screenshots/smart%20travel%20header.jpeg" width="220"/>
+</td>
+</tr>
+</table>
+
 
 ### Ticket View & Ticket Booked
 
-<p>
-<img src="screenshots/ticket.png" width="250" style="margin-right:40px;"/>
-<img src="screenshots/ticket_booked.jpeg" width="250"/>
-</p>
+<table>
+<tr>
+<td>
+<img src="screenshots/ticket.png" width="220"/>
+</td>
+<td width="80"></td>
+<td>
+<img src="screenshots/ticket_booked.jpeg" width="220"/>
+</td>
+</tr>
+</table>
+
 
 ### Your Booking
 
-<p>
-<img src="screenshots/your%20booking.jpeg" width="250"/>
-</p>
+<table>
+<tr>
+<td>
+<img src="screenshots/your%20booking.jpeg" width="220"/>
+</td>
+</tr>
+</table>
 
 ## ✨ Features
 
