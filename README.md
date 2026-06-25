@@ -66,16 +66,16 @@ SmartRoute is an AI-powered travel assistant that helps users compare travel opt
 </table>
 
 
-### Ticket View & Ticket Booked
+### Ticket Booked & Ticket View  
 
 <table>
 <tr>
 <td>
-<img src="screenshots/ticket.png" width="220"/>
+<img src="screenshots/ticket_booked.jpeg" width="220"/>
 </td>
 <td width="80"></td>
 <td>
-<img src="screenshots/ticket_booked.jpeg" width="220"/>
+<img src="screenshots/ticket.png" width="220"/>
 </td>
 </tr>
 </table>
