@@ -36,21 +36,6 @@ SmartRoute is an AI-powered travel assistant that helps users compare travel opt
 </table>
 
 
-### Booking List & Confirmed Booking
-
-<table>
-<tr>
-<td>
-<img src="screenshots/flight%20bookings.jpeg" width="220"/>
-</td>
-<td width="80"></td>
-<td>
-<img src="screenshots/confirmed_booking.jpeg" width="220"/>
-</td>
-</tr>
-</table>
-
-
 ### Flight Bookings & Header Section
 
 <table>
