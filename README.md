@@ -11,11 +11,11 @@ SmartRoute is an AI-powered travel assistant that helps users compare travel opt
 <table>
 <tr>
 <td>
-<img src="screenshots/flight%20bookings.jpeg" width="220"/>
+<img src="screenshots/booking%20list%20header.jpeg" width="220"/>
 </td>
 <td width="80"></td>
 <td>
-<img src="screenshots/Travel%20assisstant.jpeg" width="220"/>
+<img src="screenshots/booking%20front.jpeg" width="220"/>
 </td>
 </tr>
 </table>
@@ -30,7 +30,7 @@ SmartRoute is an AI-powered travel assistant that helps users compare travel opt
 </td>
 <td width="80"></td>
 <td>
-<img src="screenshots/booking%20front%201.jpeg" width="220"/>
+<img src="screenshots/Travel%20assisstant.jpeg" width="220"/>
 </td>
 </tr>
 </table>
@@ -41,7 +41,7 @@ SmartRoute is an AI-powered travel assistant that helps users compare travel opt
 <table>
 <tr>
 <td>
-<img src="screenshots/booking%20list%20header.jpeg" width="220"/>
+<img src="screenshots/flight%20bookings.jpeg" width="220"/>
 </td>
 <td width="80"></td>
 <td>
