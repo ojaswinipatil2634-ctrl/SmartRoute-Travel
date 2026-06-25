@@ -1,0 +1,131 @@
+{
+  "entities": {
+    "userProfile": {
+      "title": "User Profile",
+      "description": "Stores user preferences and basic info.",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "email": { "type": "string", "format": "email" },
+        "displayName": { "type": "string" },
+        "photoURL": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "fcmToken": { "type": "string", "description": "Token for push notifications" }
+      },
+      "required": ["uid", "email"]
+    },
+    "trip": {
+      "title": "Trip",
+      "description": "A saved travel itinerary.",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "title": { "type": "string" },
+        "source": { "type": "string" },
+        "destination": { "type": "string" },
+        "startDate": { "type": "string", "format": "date" },
+        "endDate": { "type": "string", "format": "date" },
+        "totalCost": { "type": "number" },
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "type": { "type": "string", "enum": ["flight", "train", "cab", "hotel", "restaurant", "event"] },
+              "name": { "type": "string" },
+              "price": { "type": "number" },
+              "details": { "type": "string" }
+            }
+          }
+        },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["userId", "title", "source", "destination"]
+    },
+    "booking": {
+      "title": "Booking",
+      "description": "A confirmed booking for a travel service (Individual or Multi-Modal).",
+      "type": "object",
+      "properties": {
+        "bookingId": { "type": "string", "description": "Unique TripSutra booking ID" },
+        "bookingType": { "type": "string", "enum": ["flight", "train", "cab", "hotel", "event", "multi-modal"] },
+        "userId": { "type": "string" },
+        "passengerName": { "type": "string" },
+        "email": { "type": "string", "format": "email" },
+        "phone": { "type": "string" },
+        "details": { 
+          "type": "object",
+          "description": "Service-specific details for individual bookings."
+        },
+        "segments": {
+          "type": "array",
+          "description": "Journey segments for multi-modal bookings.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "type": { "type": "string", "enum": ["flight", "train", "cab"] },
+              "provider": { "type": "string" },
+              "from": { "type": "string" },
+              "to": { "type": "string" },
+              "departureTime": { "type": "string" },
+              "arrivalTime": { "type": "string" },
+              "details": { "type": "object" }
+            }
+          }
+        },
+        "totalCost": { "type": "number" },
+        "totalDuration": { "type": "string" },
+        "status": { "type": "string", "enum": ["confirmed", "pending", "cancelled"] },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["bookingId", "bookingType", "userId", "passengerName", "email", "phone", "status", "createdAt"]
+    },
+    "chatMessage": {
+      "title": "Chat Message",
+      "description": "A message in the AI chat history.",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "role": { "type": "string", "enum": ["user", "model"] },
+        "text": { "type": "string" },
+        "timestamp": { "type": "string", "format": "date-time" }
+      },
+      "required": ["userId", "role", "text", "timestamp"]
+    },
+    "savedItem": {
+      "title": "Saved Item",
+      "description": "A service or place saved by the user.",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "itemId": { "type": "string" },
+        "itemType": { "type": "string" },
+        "data": { "type": "object" },
+        "savedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["userId", "itemId", "itemType", "data", "savedAt"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "userProfile",
+      "description": "User profile documents."
+    },
+    "/trips/{tripId}": {
+      "schema": "trip",
+      "description": "Saved trips for all users."
+    },
+    "/tickets/{ticketId}": {
+      "schema": "booking",
+      "description": "User bookings and e-tickets."
+    },
+    "/chat_history/{messageId}": {
+      "schema": "chatMessage",
+      "description": "AI chat history."
+    },
+    "/saved_items/{savedId}": {
+      "schema": "savedItem",
+      "description": "User's saved items/wishlist."
+    }
+  }
+}

@@ -1,0 +1,184 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // ===============================================================
+    // Assumed Data Model
+    // ===============================================================
+    //
+    // Collection: users
+    // Document ID: {userId}
+    // Fields:
+    //   - uid: string (required)
+    //   - email: string (required, email format)
+    //   - displayName: string
+    //   - photoURL: string
+    //   - createdAt: timestamp
+    //   - fcmToken: string
+    //
+    // Collection: trips
+    // Document ID: {tripId}
+    // Fields:
+    //   - userId: string (required)
+    //   - title: string (required)
+    //   - source: string (required)
+    //   - destination: string (required)
+    //   - startDate: string
+    //   - endDate: string
+    //   - totalCost: number
+    //   - items: list
+    //   - createdAt: timestamp
+    //
+    // Collection: tickets
+    // Document ID: {ticketId}
+    // Fields:
+    //   - bookingId: string (required)
+    //   - bookingType: string (required, enum: flight, train, cab, hotel, event)
+    //   - userId: string (required)
+    //   - passengerName: string (required)
+    //   - email: string (required)
+    //   - phone: string (required)
+    //   - details: map (required)
+    //   - status: string (required, enum: confirmed, pending, cancelled)
+    //   - createdAt: string (required)
+    //
+    // Collection: chat_history
+    // Document ID: {messageId}
+    // Fields:
+    //   - userId: string (required)
+    //   - role: string (required, enum: user, model)
+    //   - text: string (required)
+    //   - timestamp: timestamp (required)
+    //
+    // Collection: saved_items
+    // Document ID: {savedId}
+    // Fields:
+    //   - userId: string (required)
+    //   - itemId: string (required)
+    //   - itemType: string (required)
+    //   - data: map (required)
+    //   - savedAt: timestamp (required)
+    //
+    // ===============================================================
+
+    // ===============================================================
+    // Helper Functions
+    // ===============================================================
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+
+    function isOwner(userId) {
+      return isAuthenticated() && request.auth.uid == userId;
+    }
+
+    function isDocOwner() {
+      return isAuthenticated() && request.auth.uid == resource.data.userId;
+    }
+
+    function isValidEmail(email) {
+      return email is string && email.matches("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$");
+    }
+
+    function isAdmin() {
+      return isAuthenticated() && (
+        (request.auth.token.email == "ojaswinipatil2634@gmail.com" && request.auth.token.email_verified == true) ||
+        (exists(/databases/$(database)/documents/users/$(request.auth.uid)) && get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'admin')
+      );
+    }
+
+    // ===============================================================
+    // Domain Validators
+    // ===============================================================
+
+    function isValidUser(data) {
+      return data.uid is string && data.uid.size() > 0 &&
+             data.email is string && isValidEmail(data.email);
+    }
+
+    function isValidTrip(data) {
+      return data.userId is string && data.userId.size() > 0 &&
+             data.title is string && data.title.size() > 0 && data.title.size() < 100 &&
+             data.source is string && data.source.size() > 0 &&
+             data.destination is string && data.destination.size() > 0;
+    }
+
+    function isValidTicket(data) {
+      return data.userId is string && data.userId.size() > 0 &&
+             data.bookingId is string && data.bookingId.size() > 0 &&
+             data.bookingType in ['flight', 'train', 'cab', 'hotel', 'event', 'multi-modal'] &&
+             data.passengerName is string && data.passengerName.size() > 0 &&
+             data.email is string && isValidEmail(data.email) &&
+             (data.bookingType == 'multi-modal' ? (data.segments is list) : (data.details is map)) &&
+             data.status in ['confirmed', 'pending', 'cancelled'];
+    }
+
+    function isValidChatMessage(data) {
+      return data.userId is string && data.userId.size() > 0 &&
+             data.role in ['user', 'model'] &&
+             data.text is string && data.text.size() > 0;
+    }
+
+    function isValidSavedItem(data) {
+      return data.userId is string && data.userId.size() > 0 &&
+             data.itemId is string && data.itemId.size() > 0 &&
+             data.itemType is string &&
+             data.data is map;
+    }
+
+    // ===============================================================
+    // Rules
+    // ===============================================================
+
+    match /users/{userId} {
+      allow read: if isAuthenticated() && (request.auth.uid == userId || isAdmin());
+      allow create: if isAuthenticated() && request.auth.uid == userId && isValidUser(request.resource.data);
+      allow update: if isAuthenticated() && request.auth.uid == userId && isValidUser(request.resource.data) && 
+                      request.resource.data.uid == resource.data.uid;
+      allow delete: if isAdmin();
+    }
+
+    match /trips/{tripId} {
+      allow read: if isAuthenticated() && (isAdmin() || (resource != null && resource.data.userId == request.auth.uid));
+      allow create: if isAuthenticated() && request.resource.data.userId == request.auth.uid && isValidTrip(request.resource.data);
+      allow update: if isAuthenticated() && resource.data.userId == request.auth.uid && 
+                      request.resource.data.userId == resource.data.userId && isValidTrip(request.resource.data);
+      allow delete: if isAuthenticated() && (resource.data.userId == request.auth.uid || isAdmin());
+    }
+
+    match /tickets/{ticketId} {
+      allow read: if isAuthenticated() && (isAdmin() || (resource != null && resource.data.userId == request.auth.uid));
+      allow create: if isAuthenticated() && request.resource.data.userId == request.auth.uid && isValidTicket(request.resource.data);
+      allow update: if isAuthenticated() && resource.data.userId == request.auth.uid && 
+                      request.resource.data.userId == resource.data.userId && isValidTicket(request.resource.data);
+      allow delete: if isAdmin();
+    }
+
+    match /bookings/{bookingId} {
+      allow read: if isAuthenticated() && (isAdmin() || (resource != null && resource.data.userId == request.auth.uid));
+      allow create: if isAuthenticated() && request.resource.data.userId == request.auth.uid && isValidTicket(request.resource.data);
+      allow update: if isAuthenticated() && resource.data.userId == request.auth.uid && 
+                      request.resource.data.userId == resource.data.userId && isValidTicket(request.resource.data);
+      allow delete: if isAdmin();
+    }
+
+    match /chat_history/{messageId} {
+      allow read: if isAuthenticated() && (isAdmin() || (resource != null && resource.data.userId == request.auth.uid));
+      allow create: if isAuthenticated() && request.resource.data.userId == request.auth.uid && isValidChatMessage(request.resource.data);
+      allow update: if false; // Messages are immutable
+      allow delete: if isAuthenticated() && (resource.data.userId == request.auth.uid || isAdmin());
+    }
+
+    match /saved_items/{savedId} {
+      allow read: if isAuthenticated() && (isAdmin() || (resource != null && resource.data.userId == request.auth.uid));
+      allow create: if isAuthenticated() && request.resource.data.userId == request.auth.uid && isValidSavedItem(request.resource.data);
+      allow update: if isAuthenticated() && resource.data.userId == request.auth.uid && 
+                      request.resource.data.userId == resource.data.userId && isValidSavedItem(request.resource.data);
+      allow delete: if isAuthenticated() && (resource.data.userId == request.auth.uid || isAdmin());
+    }
+
+    // Default deny
+    match /{path=**} {
+      allow read, write: if false;
+    }
+  }
+}
